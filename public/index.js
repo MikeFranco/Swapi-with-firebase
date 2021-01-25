@@ -67,14 +67,17 @@ const getCharacterCard = data => `
   </div>
 `;
 
-let currentUserCharacter = 1;
+let currentUserCharacter = 0;
+let totalUserSavedCharacters = 0;
 const setupCharacters = userData => {
   if (userData.length) {
+    totalUserSavedCharacters = userData.length;
     const html = userData.map(doc => {
       const data = doc.data();
       return getCharacterCard(data);
     });
-    card.innerHTML = html;
+    card.innerHTML = html[currentUserCharacter];
+    currentUserCharacter++;
   } else {
     card.innerHTML = `<h3 class="text-center">Sin información</h3>`;
   }
@@ -117,7 +120,6 @@ next.addEventListener('click', async(e) => {
 });
 
 save.addEventListener('click', async(e) => {
-  console.log(currentCharacterData);
   const dataToSave = {
     name: currentCharacterData.name,
     height: currentCharacterData.height,
