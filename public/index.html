@@ -6,12 +6,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SWAPI</title>
   <link rel="stylesheet" href="./style.css">
+  <!-- <link rel="stylesheet" href="./style.scss"> -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
     integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
 </head>
 
 <body>
-  <button class="btn btn-danger logged-in logout" style="display: none;">Cerrar sesión</button>
+  <div class="logout">
+    <div class="row">
+      <div class="col">
+        <button class="btn btn-danger logged-in" style="display: none;">Cerrar sesión</button>
+      </div>
+      <div class="col">
+        <button class="btn btn-success logged-in" style="display: none;">Mostrar Guardados</button>
+      </div>
+    </div>
+  </div>
   <div class="container logged-out" style="display: contents;">
     <div class="box">
       <h2 class="name">Lado luminoso</h2>
@@ -27,13 +37,17 @@
     </div>
   </div>
 
-  <div class="container p-4 logged-in" style="display: none;">
+  <!-- <div class="container p-4 logged-in" style="display: none;">
     <div class="row">
       <div class="col-md-6">
         <ul class="list-group card-list">
         </ul>
       </div>
     </div>
+  </div> -->
+
+  <div class="card-container logged-in card-list">
+    
   </div>
 
   <script src="vanilla-tilt.min.js"></script>
