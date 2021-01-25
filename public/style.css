@@ -138,3 +138,13 @@ body {
 .container .box:nth-child(2) .reference{
   background: #fb4b4f;
 }
+
+.reference:hover {
+  cursor: pointer;
+}
+
+.logout {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
