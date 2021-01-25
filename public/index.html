@@ -13,11 +13,11 @@
 
 <body>
   <div class="logout">
-    <div class="row">
-      <div class="col">
+    <div class="row no-gutters">
+      <div class="col-5">
         <button class="btn btn-danger logged-in" style="display: none;">Cerrar sesión</button>
       </div>
-      <div class="col">
+      <div class="col-6">
         <button class="btn btn-success logged-in" style="display: none;">Mostrar Guardados</button>
       </div>
     </div>
@@ -46,8 +46,23 @@
     </div>
   </div> -->
 
-  <div class="card-container logged-in card-list">
-    
+  <div class="card-container logged-in">
+    <div class="card-list"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 col-md-6 next">
+          <button id="button" class="btn save-btn">
+            Save
+          </button>
+        </div>
+
+        <div class="col-sm-12 col-md-6 next">
+          <button id="button" class="btn next-btn">
+            Next
+          </button>
+        </div>
+      </div>
+    </div>
   </div>
 
   <script src="vanilla-tilt.min.js"></script>
