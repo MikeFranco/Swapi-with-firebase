@@ -47,7 +47,7 @@ const getCharacterCard = data => `
         <ul>
           <li>
             <span>Altura</span>
-            <p id="population">${data.height}</p>
+            <p id="population">${data.height} cm</p>
           </li>
           <li>
             <span>Fecha de nacimiento</span>
@@ -102,17 +102,29 @@ auth.onAuthStateChanged(user => {
   }
 });
 
-let currentCharacter = 1;
+let currentCharacter = 2;
+let currentCharacterData = {};
 const getNextCharacter = async () => {
   const resp = await fetch(`https://swapi.dev/api/people/${currentCharacter}`);
   const data = await resp.json();
-  console.log(data);
   currentCharacter++;
-  console.log('+++++++++++');
-  console.log(currentCharacter);
+  currentCharacterData = {...data};
   return getCharacterCard(data);
 };
 
 next.addEventListener('click', async(e) => {
   card.innerHTML = await getNextCharacter();
 });
+
+save.addEventListener('click', async(e) => {
+  console.log(currentCharacterData);
+  const dataToSave = {
+    name: currentCharacterData.name,
+    height: currentCharacterData.height,
+    birth_year: currentCharacterData.birth_year,
+    skin_color: currentCharacterData.skin_color,
+    eye_color: currentCharacterData.eye_color
+  };
+  const saveData = await fs.collection('personajes').add(dataToSave);
+
+})
